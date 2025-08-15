@@ -1,0 +1,54 @@
+Network Traffic Analysis Report
+=================================
+
+Date of Capture: 14-Aug-2025
+Captured Using: Wireshark v4.x
+Interface: Ethernet 1
+
+------------------------------------------------------------
+1. Capture Summary
+------------------------------------------------------------
+- Total Packets: 352
+- Capture Duration: 2 minutes 18 seconds
+- Protocols Observed: TCP, UDP, HTTP, DNS, ICMP
+- Source IP Range: 192.168.1.0/24
+- Destination IP Range: Multiple external hosts
+
+------------------------------------------------------------
+2. Key Observations
+------------------------------------------------------------
+a) DNS Activity
+- Multiple DNS requests for domains like "example.com" and "testsite.local"
+- DNS responses received successfully, indicating proper name resolution.
+
+b) HTTP Traffic
+- Outbound HTTP GET requests to `http://example.com`
+- Response codes: 200 (OK) and 404 (Not Found)
+
+c) TCP Handshake Patterns
+- Normal SYN, SYN-ACK, ACK sequence observed.
+- No significant packet loss detected.
+
+d) ICMP Echo Requests
+- Several ping requests to 8.8.8.8 (Google DNS) with successful replies.
+- Used for connectivity testing.
+
+------------------------------------------------------------
+3. Potential Security Concerns
+------------------------------------------------------------
+- **Plain HTTP Traffic Detected**: Transmitting data without encryption can lead to data interception.
+- **Open ICMP Access**: Could be exploited for network mapping by attackers.
+
+------------------------------------------------------------
+4. Recommendations
+------------------------------------------------------------
+1. Use HTTPS instead of HTTP for all web communications.
+2. Limit ICMP exposure to only trusted hosts.
+3. Implement DNS over HTTPS (DoH) or DNS over TLS (DoT) for privacy.
+
+------------------------------------------------------------
+5. Conclusion
+------------------------------------------------------------
+The captured traffic shows normal browsing and network testing activity, but also highlights unencrypted web traffic that should be secured.
+
+Prepared by: Security Analyst – Network Forensics Lab
